@@ -1,0 +1,8 @@
+{
+    "name": "cornernote/yii2-gii-tools",
+    "autoload": {
+        "psr-4": {
+            "cornernote\\": ""
+        }
+    }
+}

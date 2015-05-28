@@ -92,7 +92,7 @@ EOS;
 
     foreach ($generator->getModelRelations($generator->modelClass, ['has_many']) as $name => $relation) {
 
-        echo "\n<?php \$this->beginBlock('$name'); ?>\n";
+        echo "\n    <?php \$this->beginBlock('$name'); ?>\n";
 
         // get relation info $ prepare add button
         $model          = new $generator->modelClass;
@@ -103,7 +103,7 @@ EOS;
             $pivotRelation = $model->{'get' . $pivotName}();
             $pivotPk       = key($pivotRelation->link);
 
-            $addButton = "  <?= Html::a(
+            $addButton = "            <?= Html::a(
             '<span class=\"glyphicon glyphicon-link\"></span> ' . " . $generator->generateString('Attach') . " . ' " .
                 Inflector::singularize(Inflector::camel2words($name)) .
                 "', ['" . $generator->createRelationRoute($pivotRelation, 'create') . "', '" .
@@ -117,25 +117,27 @@ EOS;
         }
 
         // relation list, add, create buttons
-        echo "<div style='position: relative'><div style='position:absolute; right: 0px; top 0px;'>\n";
+        echo '    <div style="position: relative">'."\n";
+        echo '        <div style="position:absolute; right: 0px; top 0px;">'."\n";
 
-        echo "  <?= Html::a(
-            '<span class=\"glyphicon glyphicon-list\"></span> ' . " . $generator->generateString('List All') . " . ' " .
-            Inflector::camel2words($name) . "',
-            ['" . $generator->createRelationRoute($relation, 'index') . "'],
-            ['class'=>'btn text-muted btn-xs']
-        ) ?>\n";
+        echo "            <?= Html::a(
+                '<span class=\"glyphicon glyphicon-list\"></span> ' . " . $generator->generateString('List All') . " . ' " .
+                Inflector::camel2words($name) . "',
+                ['" . $generator->createRelationRoute($relation, 'index') . "'],
+                ['class' => 'btn text-muted btn-xs']
+            ) ?>\n";
         // TODO: support multiple PKs, VarDumper?
-        echo "  <?= Html::a(
-            '<span class=\"glyphicon glyphicon-plus\"></span> ' . " . $generator->generateString('New') . " . ' " .
-            Inflector::singularize(Inflector::camel2words($name)) . "',
-            ['" . $generator->createRelationRoute($relation, 'create') . "', '" .
-            Inflector::singularize($name) . "' => ['" . key($relation->link) . "' => \$model->" . $model->primaryKey()[0] . "]],
-            ['class'=>'btn btn-success btn-xs']
-        ); ?>\n";
+        echo "            <?= Html::a(
+                '<span class=\"glyphicon glyphicon-plus\"></span> ' . " . $generator->generateString('New') . " . ' " .
+                Inflector::singularize(Inflector::camel2words($name)) . "',
+                ['" . $generator->createRelationRoute($relation, 'create') . "', '" .
+                Inflector::singularize($name) . "' => ['" . key($relation->link) . "' => \$model->" . $model->primaryKey()[0] . "]],
+                ['class' => 'btn btn-success btn-xs']
+            ); ?>\n";
         echo $addButton;
 
-        echo "</div></div>";#<div class='clearfix'></div>\n";
+        echo "        </div>\n";#<div class='clearfix'></div>\n";
+        echo "    </div>\n";
 
         // render pivot grid
         if ($relation->via !== null) {
@@ -152,12 +154,12 @@ EOS;
 
         // render relation grid
         if (!empty($output)):
-            echo "<?php Pjax::begin(['id'=>'pjax-{$name}', 'enableReplaceState'=> false, 'linkSelector'=>'#pjax-{$name} ul.pagination a, th a', 'clientOptions' => ['pjax:success'=>'function(){alert(\"yo\")}']]) ?>\n";
-            echo "<?= " . $output . "?>\n";
-            echo "<?php Pjax::end() ?>\n";
+            echo "    <?php Pjax::begin(['id' => 'pjax-{$name}', 'enableReplaceState' => false, 'linkSelector' => '#pjax-{$name} ul.pagination a, th a', 'clientOptions' => ['pjax:success' => 'function(){alert(\"yo\")}']]) ?>\n";
+            echo "    <?= " . $output . "?>\n";
+            echo "    <?php Pjax::end() ?>\n";
         endif;
 
-        echo "<?php \$this->endBlock() ?>\n\n";
+        echo "    <?php \$this->endBlock() ?>\n\n";
 
         // build tab items
         $label = Inflector::camel2words($name);

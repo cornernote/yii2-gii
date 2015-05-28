@@ -22,4 +22,9 @@ class RelationProvider extends \schmunk42\giiant\crud\providers\RelationProvider
         return TabPadding::pad(parent::attributeFormat($column), 3, true);
     }
 
+    public function relationGrid($name, $relation, $showAllRecords = false)
+    {
+        return TabPadding::pad(parent::relationGrid($name, $relation, $showAllRecords), 1);
+    }
+
 }

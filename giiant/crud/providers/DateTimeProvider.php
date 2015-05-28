@@ -1,6 +1,6 @@
 <?php
 
-namespace app\gii\giiant\crud\providers;
+namespace cornernote\giitools\giiant\crud\providers;
 
 
 class DateTimeProvider extends \schmunk42\giiant\crud\providers\DateTimeProvider

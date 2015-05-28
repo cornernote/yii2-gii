@@ -18,7 +18,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
     public $doCrud = true;
 
     public $crudProviders = [
-        '\app\gii\giiant\crud\providers\DateTimeProvider',
+        '\cornernote\giitools\giiant\crud\providers\DateTimeProvider',
         '\schmunk42\giiant\crud\providers\CallbackProvider',
         '\schmunk42\giiant\crud\providers\EditorProvider',
         '\schmunk42\giiant\crud\providers\RelationProvider',

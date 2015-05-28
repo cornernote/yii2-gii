@@ -1,5 +1,5 @@
 <?php
-namespace app\commands;
+namespace cornernote\commands;
 
 use yii\helpers\ArrayHelper;
 use schmunk42\giiant\crud\Generator;
@@ -10,7 +10,7 @@ use yii\helpers\Inflector;
  *
  * @package app\commands
  */
-class BatchController extends \schmunk42\giiant\commands\BatchController
+class GiiToolsBatchController extends \schmunk42\giiant\commands\BatchController
 {
 
     public $tables = [];

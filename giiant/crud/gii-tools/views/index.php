@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 $route = $generator->createRelationRoute($relation,'index');
                 $label      = Inflector::titleize(StringHelper::basename($relation->modelClass), '-', true);
                 $items[] = [
-                    'label' => '<i class="glyphicon glyphicon-' . $iconType . '"> ' . $label . '</i>',
+                    'label' => '<i class="glyphicon glyphicon-' . $iconType . '"></i> ' . $label,
                     'url'   => [$route]
                 ];
             }

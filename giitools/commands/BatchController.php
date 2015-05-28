@@ -23,7 +23,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
         '\schmunk42\giiant\crud\providers\EditorProvider',
         '\schmunk42\giiant\crud\providers\RelationProvider',
     ];
-    public $template = 'app';
+    public $template = 'gii-tools';
     public $modelNamespace = 'app\models';
     public $interactive = 0;
     public $overwrite = 1;

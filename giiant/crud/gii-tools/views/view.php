@@ -164,11 +164,12 @@ EOS;
         // build tab items
         $label = Inflector::camel2words($name);
         $items .= <<<EOS
-[
-    'label'   => '<small><span class="glyphicon glyphicon-paperclip"></span> $label</small>',
-    'content' => \$this->blocks['$name'],
-    'active'  => false,
-],
+
+            [
+                'label' => '<small><span class="glyphicon glyphicon-paperclip"></span> $label</small>',
+                'content' => \$this->blocks['$name'],
+                'active' => false,
+            ],
 EOS;
     }
     ?>

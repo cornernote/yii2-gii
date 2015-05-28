@@ -44,7 +44,10 @@ use yii\bootstrap\ActiveForm;
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-searchModalLabel"><?= '<?= ' ?><?= $generator->generateString('Search') ?> . ' ' . <?= $generator->generateString(Inflector::pluralize(StringHelper::basename($generator->modelClass))) ?><?= ' ?>' ?></h4>
+                <h4 class="modal-title" id="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-searchModalLabel">
+                    <i class="fa fa-search"></i>
+                    <?= '<?= ' ?><?= $generator->generateString('Search') ?> . ' ' . <?= $generator->generateString(Inflector::pluralize(StringHelper::basename($generator->modelClass))) ?><?= ' ?>' ?>
+                </h4>
             </div>
             <div class="modal-body">
 <?php

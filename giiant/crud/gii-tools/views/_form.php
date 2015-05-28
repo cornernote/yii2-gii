@@ -21,6 +21,7 @@ echo "<?php\n";
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use \dmstr\bootstrap\Tabs;
+use cornernote\helpers\ReturnUrl;
 
 /**
  * @var yii\web\View $this
@@ -37,6 +38,8 @@ use \dmstr\bootstrap\Tabs;
         'layout' => '<?= $generator->formLayout ?>',
         'enableClientValidation' => false,
     ]); ?>
+
+    <?= "<?=" ?> Html::hiddenInput('ru', ReturnUrl::getToken(false)); ?>
 
     <?= "<?=" ?> $form->errorSummary($model); ?>
     <?php echo "<?php \$this->beginBlock('main'); ?>"; ?>

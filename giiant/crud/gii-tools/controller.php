@@ -35,6 +35,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 use dmstr\bootstrap\Tabs;
+use cornernote\helpers\ReturnUrl;
 
 /**
  * <?= $controllerClass ?> implements the CRUD actions for <?= $modelClass ?> model.
@@ -118,7 +119,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = new <?= $modelClass ?>;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', <?= $urlParams ?>]);
+            return $this->redirect(ReturnUrl::getUrl(['view', <?= $urlParams ?>]));
         } elseif (!\Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->get());
         }
@@ -137,7 +138,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = $this->findModel(<?= $actionParams ?>);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', <?= $urlParams ?>]);
+            return $this->redirect(ReturnUrl::getUrl(['view', <?= $urlParams ?>]));
         }
 
         return $this->render('update', compact('model'));
@@ -153,7 +154,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     {
         $this->findModel(<?= $actionParams ?>)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(ReturnUrl::getUrl(['index']));
     }
 
     /**

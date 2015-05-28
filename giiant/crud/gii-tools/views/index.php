@@ -18,6 +18,7 @@ echo "<?php\n";
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\bootstrap\ButtonDropdown;
 use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?>;
 use cornernote\helpers\ReturnUrl;
 
@@ -66,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
 
             <?= "<?=\n" ?>
-            \yii\bootstrap\ButtonDropdown::widget(
+            ButtonDropdown::widget(
                 [
                     'id' => 'giiant-relations',
                     'encodeLabel' => false,
@@ -109,7 +110,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     'urlCreator' => function (\$action, \$model, \$key, \$index) {
                         // using the column name as key, not mapping to 'id' like the standard generator
                         \$params = is_array(\$key) ? \$key : [\$model->primaryKey()[0] => (string)\$key];
-                        \$params[0] = \Yii::\$app->controller->id ? \Yii::\$app->controller->id . '/' . \$action : \$action;
+                        \$params[0] = Yii::\$app->controller->id ? Yii::\$app->controller->id . '/' . \$action : \$action;
+                        \$params['ru'] = ReturnUrl::getToken();
                         return Url::toRoute(\$params);
                     },
                     'contentOptions' => ['nowrap' => 'nowrap']
@@ -139,11 +141,11 @@ PHP;
 
 <?php else: ?>
         <?= "<?= " ?> ListView::widget([
-        'dataProvider' => $dataProvider,
-        'itemOptions' => ['class' => 'item'],
-        'itemView' => function ($model, $key, $index, $widget) {
-        return Html::a(Html::encode($model-><?= $nameAttribute ?>), ['view', <?= $urlParams ?>]);
-        },
+            'dataProvider' => $dataProvider,
+            'itemOptions' => ['class' => 'item'],
+            'itemView' => function ($model, $key, $index, $widget) {
+                return Html::a(Html::encode($model-><?= $nameAttribute ?>), ['view', <?= $urlParams ?>]);
+            },
         ]); ?>
 
 <?php endif; ?>

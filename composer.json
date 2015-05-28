@@ -11,10 +11,12 @@
             "homepage": "http://mrphp.com.au/"
         }
     ],
+    "require": {
+        "yiisoft/yii2": ">=2.0",
+        "cornernote/yii2-return-url": ">=2.0"
+    },
     "autoload": {
-        "psr-4": {
-            "cornernote\\giitools\\": ""
-        }
+        "psr-4": {"cornernote\\giitools\\": ""}
     },
     "extra": {
         "bootstrap": "cornernote\\giitools\\Bootstrap"

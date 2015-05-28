@@ -21,23 +21,32 @@ use yii\widgets\ActiveForm;
  */
 ?>
 
-<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-search">
+<div id="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-searchModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-searchModalLabel" aria-hidden="true">
 
     <?= "<?php " ?>$form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-searchModalLabel"><?= '<?= ' ?><?= $generator->generateString('Search') ?> . ' ' . <?= $generator->generateString(Inflector::pluralize(StringHelper::basename($generator->modelClass))) ?><?= ' ?>' ?></h4>
+            </div>
+            <div class="modal-body">
 <?php
-$count = 0;
-foreach ($generator->getTableSchema()->getColumnNames() as $attribute) {
-    echo "    <?= " . $generator->generateActiveSearchField($attribute) . " ?>\n";
-}
-?>
-
-    <div class="form-group">
-        <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Search') ?>, ['class' => 'btn btn-primary']) ?>
-        <?= "<?= " ?>Html::resetButton(<?= $generator->generateString('Reset') ?>, ['class' => 'btn btn-default']) ?>
+                foreach ($generator->getTableSchema()->getColumnNames() as $attribute) {
+                    echo "                <?= " . $generator->generateActiveSearchField($attribute) . " ?>\n";
+                }
+                ?>
+            </div>
+            <div class="modal-footer">
+                <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Search') ?>, ['class' => 'btn btn-primary']) ?>
+            </div>
+        </div>
     </div>
 
     <?= "<?php " ?>ActiveForm::end(); ?>

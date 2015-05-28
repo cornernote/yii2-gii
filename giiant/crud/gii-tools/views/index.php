@@ -33,11 +33,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-index">
 
-    <?= "<?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $this->render('_search', ['model' =>$searchModel]); ?>
-
     <div class="clearfix">
+
         <p class="pull-left">
-            <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-plus"></span> ' . <?= $generator->generateString('Create') ?> . ' <?= Inflector::camel2words(StringHelper::basename($generator->modelClass)) ?>', ['create'], ['class' => 'btn btn-success']) ?>
+            <?= "<?= " ?>Html::a('<span class="fa fa-plus"></span> ' . <?= $generator->generateString('Create') ?> . ' ' . <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>, ['create'], ['class' => 'btn btn-success']) ?>
+            <?= "<?= " ?>Html::button('<span class="fa fa-search"></span> ' . <?= $generator->generateString('Search') ?> . ' ' . <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, ['class' => 'btn btn-info', 'data-toggle' => 'modal', 'data-target' => '#<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-searchModal']) ?>
         </p>
 
         <div class="pull-right">
@@ -83,7 +83,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
         </div>
+
     </div>
+
+    <?= "<?php " . ($generator->indexWidgetType === 'grid' ? '' : '') ?>echo $this->render('_search', ['model' => $searchModel]); ?>
 
 <?php if ($generator->indexWidgetType === 'grid'): ?>
     <div class="table-responsive">

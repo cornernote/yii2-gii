@@ -1,5 +1,6 @@
 {
     "name": "cornernote/yii2-gii-tools",
+    "type": "yii2-extension",
     "autoload": {
         "psr-4": {
             "cornernote\\giitools\\": ""

@@ -25,7 +25,7 @@ use \dmstr\bootstrap\Tabs;
 /**
  * @var yii\web\View $this
  * @var <?= ltrim($generator->modelClass, '\\') ?> $model
- * @var yii\widgets\ActiveForm $form
+ * @var yii\bootstrap\ActiveForm $form
  */
 
 ?>
@@ -36,8 +36,7 @@ use \dmstr\bootstrap\Tabs;
         'id' => '<?= $model->formName() ?>',
         'layout' => '<?= $generator->formLayout ?>',
         'enableClientValidation' => false,
-    ]);
-    ?>
+    ]); ?>
 
     <?= "<?=" ?> $form->errorSummary($model); ?>
     <?php echo "<?php \$this->beginBlock('main'); ?>"; ?>

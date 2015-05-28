@@ -51,10 +51,6 @@ $this->params['breadcrumbs'][] = $this->title;
         </span>
     <?php endif; ?>\n" ?>
 
-    <h3>
-        <?= "<?= \$model->" . $generator->getModelNameAttribute($generator->modelClass) . " ?>\n" ?>
-    </h3>
-
     <?php
     echo "<?php \$this->beginBlock('{$generator->modelClass}'); ?>\n";
     ?>

@@ -2,6 +2,8 @@
 
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
+use yii\helpers\VarDumper;
+use cornernote\giitools\helpers\TabPadding;
 
 /**
  * @var yii\web\View $this
@@ -74,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'class' => 'dropdown-menu-right'
                         ],
                         'encodeLabels' => false,
-                        'items' => <?= \yii\helpers\VarDumper::export($items) ?>,
+                        'items' => <?= TabPadding::pad(VarDumper::export($items), 6) ?>,
                     ],
                 ]
             );

@@ -1,5 +1,5 @@
 <?php
-namespace cornernote\commands;
+namespace cornernote\giitools\commands;
 
 use yii\helpers\ArrayHelper;
 use schmunk42\giiant\crud\Generator;

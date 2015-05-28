@@ -2,7 +2,10 @@
     "name": "cornernote/yii2-gii-tools",
     "autoload": {
         "psr-4": {
-            "cornernote\\": ""
+            "cornernote\\giitools\\": ""
         }
-    }
+    },
+    "extra": {
+        "bootstrap": "cornernote\\giitools\\Bootstrap"
+    }    
 }

@@ -10,7 +10,7 @@ use yii\helpers\Inflector;
  *
  * @package app\commands
  */
-class GiiToolsBatchController extends \schmunk42\giiant\commands\BatchController
+class BatchController extends \schmunk42\giiant\commands\BatchController
 {
 
     public $tables = [];

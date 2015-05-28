@@ -21,7 +21,7 @@ class Bootstrap implements BootstrapInterface
     {
         if ($app->hasModule('gii')) {
             if ($app instanceof \yii\console\Application) {
-                $app->controllerMap['gii-tools-batch'] = 'cornernote\giiant\commands\BatchController';
+                $app->controllerMap['gii-tools-batch'] = 'cornernote\giitools\commands\BatchController';
             }
         }
     }

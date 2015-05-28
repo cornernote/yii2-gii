@@ -12,6 +12,8 @@ echo "<?php\n";
 ?>
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+use cornernote\helpers\ReturnUrl;
 
 /**
  * @var yii\web\View $this
@@ -25,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-create">
 
     <p class="pull-left">
-        <?= "<?= " ?>Html::a(<?= $generator->generateString('Cancel') ?>, \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        <?= "<?= " ?>Html::a(<?= $generator->generateString('Cancel') ?>, ReturnUrl::getUrl(), ['class' => 'btn btn-default']) ?>
     </p>
 
     <div class="clearfix"></div>

@@ -1,6 +1,16 @@
 {
     "name": "cornernote/yii2-gii-tools",
+    "description": "Tools to help automate gii code generation.",
     "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "keywords": ["yii2", "gii"],
+    "authors": [
+        {
+            "name": "Brett O'Donnell",
+            "email": "cornernote@gmail.com",
+            "homepage": "http://mrphp.com.au/"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "cornernote\\giitools\\": ""

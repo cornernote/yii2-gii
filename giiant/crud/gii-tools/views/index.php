@@ -19,6 +19,7 @@ echo "<?php\n";
 use yii\helpers\Html;
 use yii\helpers\Url;
 use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?>;
+use cornernote\helpers\ReturnUrl;
 
 /**
  * @var yii\web\View $this
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="clearfix">
 
         <p class="pull-left">
-            <?= "<?= " ?>Html::a('<span class="fa fa-plus"></span> ' . <?= $generator->generateString('Create') ?> . ' ' . <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>, ['create'], ['class' => 'btn btn-success']) ?>
+            <?= "<?= " ?>Html::a('<span class="fa fa-plus"></span> ' . <?= $generator->generateString('Create') ?> . ' ' . <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>, ['create', 'ru' => ReturnUrl::getToken()], ['class' => 'btn btn-success']) ?>
             <?= "<?= " ?>Html::button('<span class="fa fa-search"></span> ' . <?= $generator->generateString('Search') ?> . ' ' . <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, ['class' => 'btn btn-info', 'data-toggle' => 'modal', 'data-target' => '#<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-searchModal']) ?>
         </p>
 

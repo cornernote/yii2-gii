@@ -17,4 +17,9 @@ class RelationProvider extends \schmunk42\giiant\crud\providers\RelationProvider
         return TabPadding::pad(parent::activeField($column));
     }
 
+    public function attributeFormat($column)
+    {
+        return TabPadding::pad(parent::attributeFormat($column), 3);
+    }
+
 }

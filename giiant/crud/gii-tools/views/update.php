@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = <?= $generator->generateString('Update') ?>;
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass),'-', true) ?>-update">
 
     <p>
-        <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-eye-open"></span> ' . <?= $generator->generateString('View') ?>, ['view', <?= $urlParams ?>], ['class' => 'btn btn-info']) ?>
+        <?= "<?= " ?>Html::a('<span class="fa fa-eye"></span> ' . <?= $generator->generateString('View') ?>, ['view', <?= $urlParams ?>], ['class' => 'btn btn-info']) ?>
     </p>
 
     <?= "<?php " ?>echo $this->render('_form', [

@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 $route = $generator->createRelationRoute($relation,'index');
                 $label      = Inflector::titleize(StringHelper::basename($relation->modelClass), '-', true);
                 $items[] = [
-                    'label' => '<i class="glyphicon glyphicon-' . $iconType . '"></i> ' . $label,
+                    'label' => '<i class="fa fa-' . $iconType . '"></i> ' . $label,
                     'url'   => [$route]
                 ];
             }
@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'id' => 'giiant-relations',
                     'encodeLabel' => false,
-                    'label' => '<span class="glyphicon glyphicon-paperclip"></span> ' . <?= $generator->generateString('Relations') ?>,
+                    'label' => '<span class="fa fa-paperclip"></span> ' . <?= $generator->generateString('Relations') ?>,
                     'dropdown' => [
                         'options' => [
                             'class' => 'dropdown-menu-right'

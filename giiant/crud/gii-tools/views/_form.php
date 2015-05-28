@@ -91,7 +91,7 @@ $items
 
     <hr>
 
-    <?= "<?= " ?>Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Save') ?>), [
+    <?= "<?= " ?>Html::submitButton('<span class="fa fa-check"></span> ' . ($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Save') ?>), [
         'id' => 'save-' . $model->formName(),
         'class' => 'btn btn-success'
     ]); ?>

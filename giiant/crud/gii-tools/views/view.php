@@ -33,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <!-- menu buttons -->
     <p class='pull-left'>
-        <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-list"></span> ' . <?= $generator->generateString('List') ?>, ['index'], ['class' => 'btn btn-default']) ?>
-        <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-info']) ?>
+        <?= "<?= " ?>Html::a('<span class="fa fa-list"></span> ' . <?= $generator->generateString('List') ?>, ['index'], ['class' => 'btn btn-default']) ?>
+        <?= "<?= " ?>Html::a('<span class="fa fa-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-info']) ?>
     </p>
 
     <div class="clearfix"></div>
@@ -71,7 +71,7 @@ foreach ($generator->getTableSchema()->columns as $column) {
 
     <hr/>
 
-    <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-trash"></span> ' . <?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>], [
+    <?= "<?= " ?>Html::a('<span class="fa fa-trash"></span> ' . <?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>], [
         'class' => 'btn btn-danger',
         'data-confirm' => '' . <?= $generator->generateString('Are you sure to delete this item?') ?> . '',
         'data-method' => 'post',
@@ -83,7 +83,7 @@ foreach ($generator->getTableSchema()->columns as $column) {
     $label = StringHelper::basename($generator->modelClass);
     $items = <<<EOS
             [
-                'label' => '<span class="glyphicon glyphicon-asterisk"></span> $label',
+                'label' => '<span class="fa fa-asterisk"></span> $label',
                 'content' => \$this->blocks['{$generator->modelClass}'],
                 'active' => true,
             ],
@@ -103,7 +103,7 @@ EOS;
             $pivotPk       = key($pivotRelation->link);
 
             $addButton = "            <?= Html::a(
-            '<span class=\"glyphicon glyphicon-link\"></span> ' . " . $generator->generateString('Attach') . " . ' " .
+            '<span class=\"fa fa-link\"></span> ' . " . $generator->generateString('Attach') . " . ' " .
                 Inflector::singularize(Inflector::camel2words($name)) .
                 "', ['" . $generator->createRelationRoute($pivotRelation, 'create') . "', '" .
                 Inflector::singularize($pivotName) . "'=>['" . key(
@@ -120,14 +120,14 @@ EOS;
         echo '        <div style="position:absolute; right: 0px; top 0px;">'."\n";
 
         echo "            <?= Html::a(
-                '<span class=\"glyphicon glyphicon-list\"></span> ' . " . $generator->generateString('List All') . " . ' " .
+                '<span class=\"fa fa-list\"></span> ' . " . $generator->generateString('List All') . " . ' " .
                 Inflector::camel2words($name) . "',
                 ['" . $generator->createRelationRoute($relation, 'index') . "'],
                 ['class' => 'btn text-muted btn-xs']
             ) ?>\n";
         // TODO: support multiple PKs, VarDumper?
         echo "            <?= Html::a(
-                '<span class=\"glyphicon glyphicon-plus\"></span> ' . " . $generator->generateString('New') . " . ' " .
+                '<span class=\"fa fa-plus\"></span> ' . " . $generator->generateString('New') . " . ' " .
                 Inflector::singularize(Inflector::camel2words($name)) . "',
                 ['" . $generator->createRelationRoute($relation, 'create') . "', '" .
                 Inflector::singularize($name) . "' => ['" . key($relation->link) . "' => \$model->" . $model->primaryKey()[0] . "]],
@@ -165,7 +165,7 @@ EOS;
         $items .= <<<EOS
 
             [
-                'label' => '<small><span class="glyphicon glyphicon-paperclip"></span> $label</small>',
+                'label' => '<small><span class="fa fa-paperclip"></span> $label</small>',
                 'content' => \$this->blocks['$name'],
                 'active' => false,
             ],

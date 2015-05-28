@@ -27,6 +27,15 @@ use yii\bootstrap\ActiveForm;
         'action' => ['index'],
         'layout' => 'horizontal',
         'method' => 'get',
+        'fieldConfig' => [
+            'horizontalCssClasses' => [
+                'offset' => 'col-sm-offset-3',
+                'label' => 'col-sm-3',
+                'wrapper' => 'col-sm-9',
+                'error' => '',
+                'hint' => '',
+            ],
+        ],
     ]); ?>
 
     <div class="modal-dialog">

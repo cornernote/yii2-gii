@@ -44,8 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php
             $items = [];
             $model = new $generator->modelClass;
-            foreach ($generator->getModelRelations($model) AS $relation) { ?>
-                <?php
+            foreach ($generator->getModelRelations($model) AS $relation) {
                 // relation dropdown links
                 $iconType = ($relation->multiple) ? 'arrow-right' : 'arrow-left';
                 if ($generator->isPivotRelation($relation)) {

@@ -19,6 +19,7 @@ use yii\grid\GridView;
 use yii\widgets\DetailView;
 use yii\widgets\Pjax;
 use dmstr\bootstrap\Tabs;
+use cornernote\helpers\ReturnUrl;
 
 /**
  * @var yii\web\View $this
@@ -33,8 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <!-- menu buttons -->
     <p class='pull-left'>
-        <?= "<?= " ?>Html::a('<span class="fa fa-list"></span> ' . <?= $generator->generateString('List') ?>, ['index'], ['class' => 'btn btn-default']) ?>
-        <?= "<?= " ?>Html::a('<span class="fa fa-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-info']) ?>
+        <?= "<?= " ?>Html::a('<span class="fa fa-list"></span> ' . <?= $generator->generateString('List') ?>, ReturnUrl::getUrl(['index']), ['class' => 'btn btn-default']) ?>
+        <?= "<?= " ?>Html::a('<span class="fa fa-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>, 'ru' => ReturnUrl::getToken(false)], ['class' => 'btn btn-info']) ?>
     </p>
 
     <div class="clearfix"></div>

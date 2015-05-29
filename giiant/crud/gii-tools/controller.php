@@ -87,8 +87,6 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 
         Tabs::clearLocalStorage();
 
-        \Yii::$app->session['__crudReturnUrl'] = null;
-
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
@@ -119,7 +117,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = new <?= $modelClass ?>;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(ReturnUrl::getUrl(['view', <?= $urlParams ?>]));
+            return $this->redirect(['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getToken(false)]);
         } elseif (!\Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->get());
         }
@@ -138,7 +136,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = $this->findModel(<?= $actionParams ?>);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(ReturnUrl::getUrl(['view', <?= $urlParams ?>]));
+            return $this->redirect(['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getToken(false)]);
         }
 
         return $this->render('update', compact('model'));

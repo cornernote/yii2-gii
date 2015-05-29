@@ -127,10 +127,10 @@ PHP;
         foreach ($generator->getTableSchema()->columns as $column) {
             $format = trim($generator->columnFormat($column,$model));
             if ($format == false) continue;
-            if (++$count < 8) {
+            if (++$count < 10) {
                 echo "                {$format},\n";
             } else {
-                echo "                //{$format}\n";
+                echo "                /*{$format}*/\n";
             }
         }
 

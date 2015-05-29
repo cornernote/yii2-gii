@@ -26,7 +26,9 @@ class RelationProvider extends \schmunk42\giiant\crud\providers\RelationProvider
 
     public function relationGrid($name, $relation, $showAllRecords = false)
     {
-        return TabPadding::pad(parent::relationGrid($name, $relation, $showAllRecords), 1);
+        $data = parent::relationGrid($name, $relation, $showAllRecords);
+        $data = str_replace('return Url::toRoute',"\$params['ru'] = ReturnUrl::getToken();\n                return Url::toRoute",$data);
+        return TabPadding::pad($data, 1);
     }
 
 }

@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <!-- menu buttons -->
     <p class='pull-left'>
-        <?= "<?= " ?>Html::a('<span class="fa fa-list"></span> ' . <?= $generator->generateString('List') ?>, ReturnUrl::getUrl(['index']), ['class' => 'btn btn-default']) ?>
+        <?= "<?= " ?>Html::a('<span class="fa fa-arrow-left"></span> ' . <?= $generator->generateString('Back') ?>, ReturnUrl::getUrl(['index']), ['class' => 'btn btn-default']) ?>
         <?= "<?= " ?>Html::a('<span class="fa fa-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>, 'ru' => ReturnUrl::getToken(false)], ['class' => 'btn btn-info']) ?>
     </p>
 
@@ -128,10 +128,10 @@ EOS;
             ) ?>\n";
         // TODO: support multiple PKs, VarDumper?
         echo "            <?= Html::a(
-                '<span class=\"fa fa-plus\"></span> ' . " . $generator->generateString('New') . " . ' " .
+                '<span class=\"fa fa-plus\"></span> ' . " . $generator->generateString('Create') . " . ' " .
                 Inflector::singularize(Inflector::camel2words($name)) . "',
                 ['" . $generator->createRelationRoute($relation, 'create') . "', '" .
-                Inflector::singularize($name) . "' => ['" . key($relation->link) . "' => \$model->" . $model->primaryKey()[0] . "]],
+                Inflector::singularize($name) . "' => ['" . key($relation->link) . "' => \$model->" . $model->primaryKey()[0] . "], 'ru' => ReturnUrl::getToken()],
                 ['class' => 'btn btn-success btn-xs']
             ); ?>\n";
         echo $addButton;

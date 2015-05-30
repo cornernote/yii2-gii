@@ -35,6 +35,10 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
     public $modelBaseClass = 'app\db\ActiveRecord';
     public $crudPathPrefix = '';
 
+    public $generateQuery = true;
+    public $queryNs = 'app\models\query';
+    public $queryBaseClass = 'yii\db\ActiveQuery';
+
     /**
      * @inheritdoc
      */
@@ -81,7 +85,10 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
                     'modelClass' => isset($this->tableNameMap[$table]) ? $this->tableNameMap[$table] :
                         Inflector::camelize($table), // TODO: setting is not recognized in giiant
                     'baseClass' => $this->modelBaseClass,
-                    'tableNameMap' => $this->tableNameMap
+                    'tableNameMap' => $this->tableNameMap,
+                    'generateQuery' => $this->generateQuery,
+                    'queryNs' => $this->queryNs,
+                    'queryBaseClass' => $this->queryBaseClass,
                 ];
                 $route = 'gii/giiant-model';
 

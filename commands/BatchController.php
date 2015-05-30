@@ -20,8 +20,8 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
     public $crudProviders = [
         '\cornernote\giitools\giiant\crud\providers\RelationProvider',
         '\cornernote\giitools\giiant\crud\providers\DateTimeProvider',
-        '\schmunk42\giiant\crud\providers\CallbackProvider',
-        '\schmunk42\giiant\crud\providers\EditorProvider',
+        '\cornernote\giitools\giiant\crud\providers\CallbackProvider',
+        '\cornernote\giitools\giiant\crud\providers\EditorProvider',
     ];
     public $template = 'gii-tools';
     public $modelNamespace = 'app\models';
@@ -32,7 +32,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
     public $crudControllerNamespace = 'app\modules\admin\controllers';
     public $crudSearchModelNamespace = 'app\models\search';
     public $enableI18N = 1;
-    public $modelBaseClass = 'app\components\ActiveRecord';
+    public $modelBaseClass = 'app\db\ActiveRecord';
     public $crudPathPrefix = '';
 
     /**

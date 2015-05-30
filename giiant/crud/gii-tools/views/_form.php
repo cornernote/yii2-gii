@@ -39,7 +39,7 @@ use cornernote\helpers\ReturnUrl;
         'enableClientValidation' => false,
     ]); ?>
 
-    <?= "<?=" ?> Html::hiddenInput('ru', ReturnUrl::getToken(false)); ?>
+    <?= "<?=" ?> Html::hiddenInput('ru', ReturnUrl::getRequestToken()); ?>
 
     <?= "<?=" ?> $form->errorSummary($model); ?>
     <?php echo "<?php \$this->beginBlock('main'); ?>"; ?>

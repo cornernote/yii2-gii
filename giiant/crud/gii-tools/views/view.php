@@ -32,13 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-view">
 
-    <!-- menu buttons -->
-    <p class='pull-left'>
-        <?= "<?= " ?>Html::a('<span class="fa fa-arrow-left"></span> ' . <?= $generator->generateString('Back') ?>, ReturnUrl::getUrl(['index']), ['class' => 'btn btn-default']) ?>
-        <?= "<?= " ?>Html::a('<span class="fa fa-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-info']) ?>
-    </p>
-
-    <div class="clearfix"></div>
+    <?= '<?= ' ?> $this->render('_menu', compact('model')); <?= ' ?>' ?>
 
     <!-- flash message -->
     <?= "<?php if (\\Yii::\$app->session->getFlash('deleteError') !== null) : ?>

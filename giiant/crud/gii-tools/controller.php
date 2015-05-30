@@ -45,6 +45,15 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 
     public $layout = '@app/views/layouts/main';
 
+<?php
+$actions = '';
+foreach ($generator->getScenarios($generator->modelClass) as $scenarioName => $scenario) {
+    if (in_array($scenarioName, ['default', 'create', 'update'])) {
+        continue;
+    }
+    $actions .=", '$scenarioName'";
+}
+?>
     /**
      * @inheritdoc
      */
@@ -56,7 +65,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'view', 'create', 'update', 'delete'],
+                        'actions' => ['index', 'view', 'create', 'update', 'delete'<?= $actions ?>],
                         'roles' => ['@']
                     ]
                 ]
@@ -145,6 +154,33 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 
         return $this->render('update', compact('model'));
     }
+
+<?php foreach($generator->getScenarios($generator->modelClass) as $scenarioName => $scenario) {
+    if (in_array($scenarioName, ['default', 'create', 'update'])) {
+        continue;
+    }
+    ?>
+
+    /**
+     * Updates an existing <?= $modelClass ?> model with the scenario <?= $scenarioName ?>.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * <?= implode("\n\t * ", $actionParamComments) . "\n" ?>
+     * @return mixed
+     */
+    public function action<?= ucfirst($scenarioName) ?>(<?= $actionParams ?>)
+    {
+        $model = $this->findModel(<?= $actionParams ?>);
+        $model->scenario = '<?= $scenarioName ?>';
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()]);
+        } elseif (!\Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->get());
+        }
+
+        return $this->render('update', compact('model'));
+    }
+<?php } ?>
 
     /**
      * Deletes an existing <?= $modelClass ?> model.

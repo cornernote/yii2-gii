@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-view">
 
-    <?= '<?= ' ?> $this->render('_menu', compact('model')); <?= ' ?>' ?>
+    <?= '<?= ' ?>$this->render('_menu', compact('model'));<?= ' ?>' ?>
 
     <!-- flash message -->
     <?= "<?php if (\\Yii::\$app->session->getFlash('deleteError') !== null) : ?>

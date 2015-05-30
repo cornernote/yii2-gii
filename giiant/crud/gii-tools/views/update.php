@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = <?= $generator->generateString('Update') ?>;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass),'-', true) ?>-update">
 
-    <?= '<?= ' ?> $this->render('_menu', compact('model')); <?= ' ?>' ?>
+    <?= '<?= ' ?>$this->render('_menu', compact('model'));<?= ' ?>' ?>
 
     <?= "<?php " ?>echo $this->render('_form', [
         'model' => $model,

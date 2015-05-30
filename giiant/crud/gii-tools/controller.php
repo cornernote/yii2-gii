@@ -137,6 +137,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()]);
+        } elseif (!\Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->get());
         }
 
         return $this->render('update', compact('model'));

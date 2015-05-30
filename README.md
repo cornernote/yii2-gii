@@ -38,3 +38,7 @@ Add to your yii config in `config/main.php`:
         ],
     ];
 ```
+
+## Using Giiant with Providers
+
+https://gist.github.com/cornernote/fdf869048d6153d7aae3

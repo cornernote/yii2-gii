@@ -17,6 +17,11 @@
 use yii\helpers\StringHelper;
 
 echo "<?php\n";
+
+$scenarioFields = [];
+foreach($tableSchema->columns as $column)
+    $scenarioFields[] = "'" . $column->name . "'";
+$scenarioFields = implode(', ', $scenarioFields);
 ?>
 
 namespace <?= $generator->ns ?>\base;
@@ -45,6 +50,18 @@ class <?= $className ?> extends <?= StringHelper::basename($generator->baseClass
     public static function tableName()
     {
         return '<?= $tableName ?>';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function scenarios()
+    {
+        return [
+            'default' => [<?= $scenarioFields ?>],
+            'create' => [<?= $scenarioFields ?>],
+            'update' => [<?= $scenarioFields ?>],
+        ];
     }
 
     /**

@@ -13,7 +13,7 @@ echo "<?php\n";
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use cornernote\returnurl\helpers\ReturnUrl;
+use cornernote\returnurl\ReturnUrl;
 
 /**
  * @var yii\web\View $this

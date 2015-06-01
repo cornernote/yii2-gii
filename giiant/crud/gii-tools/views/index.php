@@ -20,7 +20,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\ButtonDropdown;
 use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?>;
-use cornernote\helpers\ReturnUrl;
+use cornernote\returnurl\helpers\ReturnUrl;
 
 /**
  * @var yii\web\View $this

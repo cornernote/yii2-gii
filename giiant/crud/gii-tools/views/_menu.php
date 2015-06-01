@@ -14,7 +14,7 @@ echo "<?php\n";
 ?>
 
 use yii\helpers\Html;
-use cornernote\helpers\ReturnUrl;
+use cornernote\returnurl\helpers\ReturnUrl;
 
 /**
  * @var yii\web\View $this

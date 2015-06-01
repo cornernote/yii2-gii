@@ -35,7 +35,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
 use dmstr\bootstrap\Tabs;
-use cornernote\helpers\ReturnUrl;
+use cornernote\returnurl\helpers\ReturnUrl;
 
 /**
  * <?= $controllerClass ?> implements the CRUD actions for <?= $modelClass ?> model.

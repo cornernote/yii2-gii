@@ -67,20 +67,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
 
             <?= "<?=\n" ?>
-            ButtonDropdown::widget(
-                [
-                    'id' => 'giiant-relations',
-                    'encodeLabel' => false,
-                    'label' => '<span class="fa fa-paperclip"></span> ' . <?= $generator->generateString('Relations') ?>,
-                    'dropdown' => [
-                        'options' => [
-                            'class' => 'dropdown-menu-right'
-                        ],
-                        'encodeLabels' => false,
-                        'items' => <?= TabPadding::pad(VarDumper::export($items), 6) ?>,
+            ButtonDropdown::widget([
+                'id' => 'giiant-relations',
+                'encodeLabel' => false,
+                'label' => '<span class="fa fa-paperclip"></span> ' . <?= $generator->generateString('Relations') ?>,
+                'dropdown' => [
+                    'options' => [
+                        'class' => 'dropdown-menu-right'
                     ],
-                ]
-            );
+                    'encodeLabels' => false,
+                    'items' => <?= TabPadding::pad(VarDumper::export($items), 5) ?>,
+                ],
+            ]);
             <?= "?>" ?>
 
 
@@ -125,13 +123,10 @@ PHP;
         echo "\n"; // code-formatting
 
         foreach ($generator->getTableSchema()->columns as $column) {
-            $format = trim($generator->columnFormat($column,$model));
+            $format = $generator->columnFormat($column,$model);
             if ($format == false) continue;
-            if (++$count < 10) {
-                echo "                {$format},\n";
-            } else {
-                echo "                /*{$format}*/\n";
-            }
+            $format = (++$count < 10) ? "{$format},\n" : "        /*" . trim($format) . "*/\n";
+            echo TabPadding::pad($format, 2, true);
         }
 
         ?>

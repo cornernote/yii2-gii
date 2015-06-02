@@ -36,31 +36,8 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
      * https://github.com/schmunk42/yii2-giiant/pull/67
      */
     public $generateQuery = true;
-    public $queryNs = 'app\models\query';
+    public $modelQueryNamespace = 'app\models\query';
     public $queryBaseClass = 'yii\db\ActiveQuery';
-
-    /**
-     * Can be removed when this is merged:
-     * https://github.com/schmunk42/yii2-giiant/pull/68
-     */
-    private $appConfig;
-
-    /**
-     * Can be removed when this is merged:
-     * https://github.com/schmunk42/yii2-giiant/pull/68
-     *
-     * @inheritdoc
-     */
-    public function beforeAction($action)
-    {
-        $this->appConfig = $this->getYiiConfiguration();
-        $this->appConfig['id'] = 'temp';
-        if (!$this->tables) {
-            echo "No tables specified.";
-            return false;
-        }
-        return parent::beforeAction($action);
-    }
 
     /**
      * Can be removed when this is merged:
@@ -89,7 +66,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
                 'baseClass' => $this->modelBaseClass,
                 'tableNameMap' => $this->tableNameMap,
                 'generateQuery' => $this->generateQuery,
-                'queryNs' => $this->queryNs,
+                'queryNs' => $this->modelQueryNamespace,
                 'queryBaseClass' => $this->queryBaseClass,
             ];
             $route = 'gii/giiant-model';

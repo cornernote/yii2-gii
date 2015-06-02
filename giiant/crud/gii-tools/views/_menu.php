@@ -32,7 +32,7 @@ use cornernote\returnurl\ReturnUrl;
         continue;
     }
     ?>
-    <?= "<?= " ?>Html::a(<?= $generator->generateString(ucfirst($scenarioName)) ?>, ['<?= $scenarioName ?>', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-info']) ?>
+    <?= "<?= " ?>Html::a(<?= $generator->generateString(ucfirst($scenarioName)) ?>, ['<?= $scenarioName ?>', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-warning']) ?>
 <?php } ?>
     <?= "<?= " ?>Html::a('<span class="fa fa-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-info']) ?>
     <?= "<?= " ?>Html::a('<span class="fa fa-trash"></span> ' . <?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], [

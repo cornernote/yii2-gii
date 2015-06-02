@@ -41,6 +41,29 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
 
     /**
      * Can be removed when this is merged:
+     * https://github.com/schmunk42/yii2-giiant/pull/68
+     */
+    private $appConfig;
+
+    /**
+     * Can be removed when this is merged:
+     * https://github.com/schmunk42/yii2-giiant/pull/68
+     *
+     * @inheritdoc
+     */
+    public function beforeAction($action)
+    {
+        $this->appConfig = $this->getYiiConfiguration();
+        $this->appConfig['id'] = 'temp';
+        if (!$this->tables) {
+            echo "No tables specified.";
+            return false;
+        }
+        return parent::beforeAction($action);
+    }
+
+    /**
+     * Can be removed when this is merged:
      * https://github.com/schmunk42/yii2-giiant/pull/67
      *
      * @inheritdoc

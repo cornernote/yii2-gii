@@ -43,16 +43,6 @@ use cornernote\returnurl\ReturnUrl;
 
     <?= "<?=" ?> $form->errorSummary($model); ?>
 
-    <p class="pull-left">
-        <?= "<?= " ?>Html::submitButton('<span class="fa fa-check"></span> ' . ($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Save') ?>), [
-            'id' => 'save-' . $model->formName(),
-            'class' => 'btn btn-success'
-        ]); ?>
-        <?= "<?php " ?>if($model->isNewRecord) echo Html::a('<span class="fa fa-times"></span> ' . <?= $generator->generateString('Cancel') ?>, ReturnUrl::getUrl(['index']), ['class' => 'btn btn-default']) ?>
-    </p>
-
-    <div class="clearfix"></div>
-
     <?php echo "<?php \$this->beginBlock('main'); ?>"; ?>
 
 <?php foreach ($safeAttributes as $attribute) {

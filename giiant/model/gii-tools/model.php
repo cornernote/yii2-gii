@@ -26,7 +26,7 @@ $scenarioFields = implode(', ', $scenarioFields);
 
 namespace <?= $generator->ns ?>\base;
 
-use Yii;
+use \Yii;
 use <?= '\\' . ltrim($generator->baseClass, '\\') ?>;
 
 /**

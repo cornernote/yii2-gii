@@ -19,7 +19,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
     public $overwrite = true;
     public $extendedModels = false;
     public $modelNamespace = 'app\models';
-    public $modelBaseClass = 'app\db\ActiveRecord';
+    public $modelBaseClass = 'yii\db\ActiveRecord';
     public $crudControllerNamespace = 'app\modules\admin\controllers';
     public $crudSearchModelNamespace = 'app\models\search';
     public $crudViewPath = '@admin/views';

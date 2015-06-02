@@ -57,7 +57,7 @@ foreach ($generator->getTableSchema()->columns as $column) {
     if ($format === false) {
         continue;
     } else {
-        echo str_replace("\t", '    ', $format) . ",\n";
+        echo '            ' . trim($format) . ",\n";
     }
 }
 ?>

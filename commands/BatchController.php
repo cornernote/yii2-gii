@@ -100,7 +100,45 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
             unset($temp);
             \Yii::$app = $app;
         }
+    }
 
+    /**
+     * Can be removed when this is merged:
+     * https://github.com/schmunk42/yii2-giiant/pull/69
+     *
+     * @inheritdoc
+     */
+    public function actionCruds()
+    {
+        // create CRUDs
+        $providers = ArrayHelper::merge($this->crudProviders, Generator::getCoreProviders());
+        foreach ($this->tables AS $table) {
+            $table = str_replace($this->tablePrefix, '', $table);
+            $name = isset($this->tableNameMap[$table]) ? $this->tableNameMap[$table] : Inflector::camelize($table);
+            $params = [
+                'interactive' => $this->interactive,
+                'overwrite' => $this->overwrite,
+                'template' => $this->template,
+                'modelClass' => $this->modelNamespace . '\\' . $name,
+                'searchModelClass' => $this->crudSearchModelNamespace . '\\' . $name . 'Search',
+                'controllerClass' => $this->crudControllerNamespace . '\\' . $name . 'Controller',
+                'viewPath' => $this->crudViewPath,
+                'pathPrefix' => $this->crudPathPrefix,
+                'tablePrefix' => $this->tablePrefix,
+                'enableI18N' => $this->enableI18N,
+                'messageCategory' => $this->messageCategory,
+                'actionButtonClass' => 'yii\\grid\\ActionColumn',
+                'baseControllerClass' => $this->crudBaseControllerClass,
+                'providerList' => implode(',', $providers),
+                'skipRelations' => $this->crudSkipRelations,
+            ];
+            $route = 'gii/giiant-crud';
+            $app = \Yii::$app;
+            $temp = new \yii\console\Application($this->appConfig);
+            $temp->runAction(ltrim($route, '/'), $params);
+            unset($temp);
+            \Yii::$app = $app;
+        }
     }
 
 }

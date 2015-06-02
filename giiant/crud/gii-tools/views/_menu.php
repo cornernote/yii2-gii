@@ -27,7 +27,7 @@ use cornernote\returnurl\ReturnUrl;
 <p class='pull-left'>
     <?= "<?= " ?>Html::a('<span class="fa fa-arrow-left"></span> ' . <?= $generator->generateString('Back') ?>, ReturnUrl::getUrl(['index']), ['class' => 'btn btn-default']) ?>
     <?= "<?= " ?>Html::a('<span class="fa fa-eye"></span> ' . <?= $generator->generateString('View') ?>, ['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-primary']) ?>
-<?php foreach($generator->getScenarios($generator->modelClass) as $scenarioName => $scenario) {
+<?php foreach((new $generator->modelClass)->scenarios() as $scenarioName => $scenario) {
     if (in_array($scenarioName, ['default', 'create', 'update'])) {
         continue;
     }

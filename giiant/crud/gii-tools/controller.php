@@ -47,7 +47,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 
 <?php
 $actions = '';
-foreach ($generator->getScenarios($generator->modelClass) as $scenarioName => $scenario) {
+foreach ((new $generator->modelClass)->scenarios() as $scenarioName => $scenario) {
     if (in_array($scenarioName, ['default', 'create', 'update'])) {
         continue;
     }
@@ -155,7 +155,7 @@ foreach ($generator->getScenarios($generator->modelClass) as $scenarioName => $s
         return $this->render('update', compact('model'));
     }
 
-<?php foreach($generator->getScenarios($generator->modelClass) as $scenarioName => $scenario) {
+<?php foreach((new $generator->modelClass)->scenarios() as $scenarioName => $scenario) {
     if (in_array($scenarioName, ['default', 'create', 'update'])) {
         continue;
     }

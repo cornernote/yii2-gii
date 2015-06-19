@@ -2,15 +2,21 @@
 
 ## Installation
 
-Add the following to your `composer.json`:
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-```json
-{
-    "require": {
-        "cornernote/yii2-gii": "dev-master"
-    },
-}
+Either run
+
 ```
+$ composer require cornernote/yii2-gii "*"
+```
+
+or add
+
+```
+"cornernote/yii2-gii": "*"
+```
+
+to the ```require``` section of your `composer.json` file.
 
 
 Add to your yii config in `config/main.php`:

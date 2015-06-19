@@ -1,5 +1,5 @@
 {
-    "name": "cornernote/yii2-gii-tools",
+    "name": "cornernote/yii2-gii",
     "description": "Tools to help automate gii code generation.",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
@@ -16,9 +16,9 @@
         "cornernote/yii2-return-url": ">=2.0"
     },
     "autoload": {
-        "psr-4": {"cornernote\\giitools\\": ""}
+        "psr-4": {"cornernote\\gii\\": ""}
     },
     "extra": {
-        "bootstrap": "cornernote\\giitools\\Bootstrap"
+        "bootstrap": "cornernote\\gii\\Bootstrap"
     }    
 }

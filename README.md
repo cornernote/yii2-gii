@@ -16,7 +16,7 @@ or add
 "cornernote/yii2-gii": "*"
 ```
 
-to the ```require``` section of your `composer.json` file.
+to the `require` section of your `composer.json` file.
 
 
 Add to your yii config in `config/main.php`:

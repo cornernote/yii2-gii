@@ -3,7 +3,7 @@
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use yii\helpers\VarDumper;
-use cornernote\giitools\helpers\TabPadding;
+use cornernote\gii\helpers\TabPadding;
 
 /**
  * @var yii\web\View $this

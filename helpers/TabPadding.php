@@ -1,6 +1,6 @@
 <?php
 
-namespace cornernote\giitools\helpers;
+namespace cornernote\gii\helpers;
 
 class TabPadding
 {

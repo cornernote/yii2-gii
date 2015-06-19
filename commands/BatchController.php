@@ -1,5 +1,5 @@
 <?php
-namespace cornernote\giitools\commands;
+namespace cornernote\gii\commands;
 
 use yii\helpers\ArrayHelper;
 use schmunk42\giiant\crud\Generator;
@@ -25,11 +25,11 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
     public $crudViewPath = '@admin/views';
     public $crudPathPrefix = '';
     public $crudProviders = [
-        '\cornernote\giitools\giiant\crud\providers\RelationProvider',
-        '\cornernote\giitools\giiant\crud\providers\DateProvider',
-        '\cornernote\giitools\giiant\crud\providers\DateTimeProvider',
-        '\cornernote\giitools\giiant\crud\providers\CallbackProvider',
-        '\cornernote\giitools\giiant\crud\providers\EditorProvider',
+        '\cornernote\gii\giiant\crud\providers\RelationProvider',
+        '\cornernote\gii\giiant\crud\providers\DateProvider',
+        '\cornernote\gii\giiant\crud\providers\DateTimeProvider',
+        '\cornernote\gii\giiant\crud\providers\CallbackProvider',
+        '\cornernote\gii\giiant\crud\providers\EditorProvider',
     ];
 
     /**

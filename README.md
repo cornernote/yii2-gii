@@ -1,4 +1,7 @@
-# Yii2 Gii Tools
+# Yii2 Gii
+
+Gii tools and templates for Yii2.
+
 
 ## Installation
 

@@ -15,7 +15,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
 
     public $interactive = 0;
 
-    public $template = 'gii-tools';
+    public $template = 'cornernote';
     public $overwrite = true;
     public $extendedModels = false;
     public $modelNamespace = 'app\models';

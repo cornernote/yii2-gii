@@ -1,6 +1,7 @@
 <?php
 namespace cornernote\gii\commands;
 
+use yii\console\Application;
 use yii\helpers\ArrayHelper;
 use schmunk42\giiant\crud\Generator;
 use yii\helpers\Inflector;
@@ -73,7 +74,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
             $route = 'gii/giiant-model';
 
             $app = \Yii::$app;
-            $temp = new \yii\console\Application($this->appConfig);
+            $temp = new Application($this->appConfig);
             $temp->runAction(ltrim($route, '/'), $params);
             unset($temp);
             \Yii::$app = $app;
@@ -112,11 +113,24 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
             ];
             $route = 'gii/giiant-crud';
             $app = \Yii::$app;
-            $temp = new \yii\console\Application($this->appConfig);
+            $temp = new Application($this->appConfig);
             $temp->runAction(ltrim($route, '/'), $params);
             unset($temp);
             \Yii::$app = $app;
         }
+    }
+
+    /**
+     * @return array
+     */
+    protected function getYiiConfiguration()
+    {
+        if (\Yii::getAlias('@tests')) {
+            return [
+                'basePath' => \Yii::getAlias('@tests'),
+            ];
+        }
+        return parent::getYiiConfiguration();
     }
 
 }

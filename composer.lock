@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30db0bac47fac438c5318061baa38a92",
+    "hash": "80e826a58339dbb17c40558183a6a8cf",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -420,16 +420,16 @@
         },
         {
             "name": "schmunk42/yii2-giiant",
-            "version": "0.4.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmunk42/yii2-giiant.git",
-                "reference": "1cb1e3ab50e1bcb3b33b5f7d7f0c4a411b23dd9d"
+                "reference": "96351721fdd02ba18d37bef12717aa0d7c35a965"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmunk42/yii2-giiant/zipball/1cb1e3ab50e1bcb3b33b5f7d7f0c4a411b23dd9d",
-                "reference": "1cb1e3ab50e1bcb3b33b5f7d7f0c4a411b23dd9d",
+                "url": "https://api.github.com/repos/schmunk42/yii2-giiant/zipball/96351721fdd02ba18d37bef12717aa0d7c35a965",
+                "reference": "96351721fdd02ba18d37bef12717aa0d7c35a965",
                 "shasum": ""
             },
             "require": {
@@ -464,7 +464,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2015-06-01 20:50:25"
+            "time": "2015-06-20 00:43:13"
         },
         {
             "name": "yiisoft/yii2",
@@ -2394,7 +2394,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "schmunk42/yii2-giiant": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

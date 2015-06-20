@@ -13,7 +13,7 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-        "schmunk42/yii2-giiant": "*"
+        "schmunk42/yii2-giiant": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",

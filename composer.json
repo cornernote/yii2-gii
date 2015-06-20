@@ -1,9 +1,9 @@
 {
     "name": "cornernote/yii2-gii",
-    "description": "Tools to help automate gii code generation.",
+    "description": "Gii tools and templates for Yii2.",
+    "keywords": ["yii2", "gii"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
-    "keywords": ["yii2", "gii"],
     "authors": [
         {
             "name": "Brett O'Donnell",
@@ -12,10 +12,10 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": ">=2.0"
+        "yiisoft/yii2": "*"
     },
     "autoload": {
-        "psr-4": {"cornernote\\gii\\": ""}
+        "psr-4": {"cornernote\\gii\\": "src"}
     },
     "extra": {
         "bootstrap": "cornernote\\gii\\Bootstrap"

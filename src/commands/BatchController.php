@@ -125,7 +125,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
      */
     protected function getYiiConfiguration()
     {
-        if (\Yii::getAlias('@tests')) {
+        if (YII_ENV == 'test') {
             return [
                 'basePath' => \Yii::getAlias('@tests'),
             ];

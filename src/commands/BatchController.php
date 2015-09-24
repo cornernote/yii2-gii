@@ -21,6 +21,7 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
     public $modelNamespace = 'app\models';
     public $crudControllerNamespace = 'app\modules\admin\controllers';
     public $crudSearchModelNamespace = 'app\models\search';
+    public $crudSearchModelSuffix = 'Search';
     public $crudViewPath = '@admin/views';
     public $crudPathPrefix = '';
     public $crudProviders = [

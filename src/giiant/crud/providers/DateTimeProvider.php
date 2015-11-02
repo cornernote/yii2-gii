@@ -4,7 +4,7 @@ namespace cornernote\gii\giiant\crud\providers;
 
 use cornernote\gii\helpers\TabPadding;
 
-class DateTimeProvider extends \schmunk42\giiant\crud\providers\DateTimeProvider
+class DateTimeProvider extends \schmunk42\giiant\generators\crud\providers\DateTimeProvider
 {
     public function activeField($attribute)
     {

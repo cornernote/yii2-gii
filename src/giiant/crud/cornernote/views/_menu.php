@@ -26,7 +26,9 @@ use cornernote\returnurl\ReturnUrl;
 <!-- menu buttons -->
 <p class='pull-left'>
     <?= "<?= " ?>Html::a('<span class="fa fa-arrow-left"></span> ' . <?= $generator->generateString('Back') ?>, ReturnUrl::getUrl(['index']), ['class' => 'btn btn-default']) ?>
-    <?= "<?= " ?>Html::a('<span class="fa fa-eye"></span> ' . <?= $generator->generateString('View') ?>, ['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-primary']) ?>
+    <?= "<?php " ?>if (Yii::$app->controller->action->id != 'view') { <?= "?>\n" ?>
+        <?= "<?= " ?>Html::a('<span class="fa fa-eye"></span> ' . <?= $generator->generateString('View') ?>, ['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-primary']) ?>
+    <?= "<?php } ?>\n" ?>
 <?php foreach((new $generator->modelClass)->scenarios() as $scenarioName => $scenario) {
     if (in_array($scenarioName, ['default', 'create', 'update'])) {
         continue;
@@ -34,7 +36,9 @@ use cornernote\returnurl\ReturnUrl;
     ?>
     <?= "<?= " ?>Html::a(<?= $generator->generateString(ucfirst($scenarioName)) ?>, ['<?= $scenarioName ?>', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-warning']) ?>
 <?php } ?>
-    <?= "<?= " ?>Html::a('<span class="fa fa-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-info']) ?>
+    <?= "<?php " ?>if (Yii::$app->controller->action->id != 'update') { <?= "?>\n" ?>
+        <?= "<?= " ?>Html::a('<span class="fa fa-pencil"></span> ' . <?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], ['class' => 'btn btn-info']) ?>
+    <?= "<?php } ?>\n" ?>
     <?= "<?= " ?>Html::a('<span class="fa fa-trash"></span> ' . <?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], [
     'class' => 'btn btn-danger',
     'data-confirm' => '' . <?= $generator->generateString('Are you sure to delete this item?') ?> . '',

@@ -10,7 +10,7 @@ echo "<?php\n";
 namespace <?= $generator->controllerNs ?>\api;
 
 /**
- * This is the class for REST controller "<?= $controllerClass ?>".
+ * This is the class for REST controller "<?= $generator->controllerClass ?>".
  */
 class <?= $controllerClassName ?> extends \yii\rest\ActiveController
 {

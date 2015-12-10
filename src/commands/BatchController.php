@@ -19,10 +19,10 @@ class BatchController extends \schmunk42\giiant\commands\BatchController
     public $template = 'cornernote';
     public $overwrite = true;
     public $modelNamespace = 'app\models';
-    public $crudControllerNamespace = 'app\modules\admin\controllers';
+    public $crudControllerNamespace = 'app\controllers';
     public $crudSearchModelNamespace = 'app\models\search';
     public $crudSearchModelSuffix = 'Search';
-    public $crudViewPath = '@admin/views';
+    public $crudViewPath = '@app/views';
     public $crudPathPrefix = '';
     public $crudProviders = [
         '\cornernote\gii\giiant\crud\providers\RelationProvider',

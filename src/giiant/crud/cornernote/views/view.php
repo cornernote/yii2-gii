@@ -10,6 +10,13 @@ use yii\helpers\StringHelper;
 
 $urlParams = $generator->generateUrlParams();
 
+/** @var \yii\db\ActiveRecord $model */
+$model = new $generator->modelClass;
+$safeAttributes = $model->safeAttributes();
+if (empty($safeAttributes)) {
+    $safeAttributes = $model->getTableSchema()->columnNames;
+}
+
 echo "<?php\n";
 ?>
 
@@ -27,8 +34,9 @@ use cornernote\returnurl\ReturnUrl;
  */
 
 $this->title = <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?> . ' ' . $model-><?= $generator->getNameAttribute() ?>;
+$this->params['heading'] = $model-><?= $generator->getNameAttribute() ?>;
 $this->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $this->params['heading'];
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-view">
 
@@ -42,8 +50,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
 <?php
-foreach ($generator->getTableSchema()->columns as $column) {
-    $format = $generator->attributeFormat($column->name);
+foreach ($safeAttributes as $attribute) {
+    $format = $generator->attributeFormat($attribute);
     if ($format === false) {
         continue;
     } else {
@@ -93,8 +101,8 @@ EOS;
         }
 
         // relation list, add, create buttons
-        echo '    <div style="position: relative">'."\n";
-        echo '        <div style="position:absolute; right: 0px; top 0px;">'."\n";
+        echo '    <div class="clearfix">'."\n";
+        echo '        <div class="pull-right">'."\n";
 
         echo "            <?= Html::a(
                 '<span class=\"fa fa-list\"></span> ' . " . $generator->generateString('List All') . " . ' " .

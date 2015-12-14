@@ -13,6 +13,13 @@ use cornernote\gii\helpers\TabPadding;
 $urlParams = $generator->generateUrlParams();
 $nameAttribute = $generator->getNameAttribute();
 
+/** @var \yii\db\ActiveRecord $model */
+$model = new $generator->modelClass;
+$safeAttributes = $model->safeAttributes();
+if (empty($safeAttributes)) {
+    $safeAttributes = $model->getTableSchema()->columnNames;
+}
+
 echo "<?php\n";
 ?>
 
@@ -66,8 +73,9 @@ $this->params['breadcrumbs'][] = $this->title;
             }
             ?>
 
-            <?= "<?=\n" ?>
-            ButtonDropdown::widget([
+            <?= "<?php \n" ?>
+            /*
+            echo ButtonDropdown::widget([
                 'id' => 'giiant-relations',
                 'encodeLabel' => false,
                 'label' => '<span class="fa fa-paperclip"></span> ' . <?= $generator->generateString('Relations') ?>,
@@ -79,6 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'items' => <?= TabPadding::pad(VarDumper::export($items), 5) ?>,
                 ],
             ]);
+            */
             <?= "?>" ?>
 
 
@@ -93,11 +102,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= "<?= " ?>GridView::widget([
             'layout' => '{summary}{pager}{items}{pager}',
             'dataProvider' => $dataProvider,
-            'pager' => [
-                'class' => yii\widgets\LinkPager::className(),
-                'firstPageLabel' => <?= $generator->generateString('First') ?>,
-                'lastPageLabel' => <?= $generator->generateString('Last') ?>,
-            ],
             'filterModel' => $searchModel,
             'columns' => [
 <?php
@@ -106,6 +110,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'class' => '{$generator->actionButtonClass}',
                     'urlCreator' => function (\$action, \$model, \$key, \$index) {
+                        /** @var {$class} \$model */
                         // using the column name as key, not mapping to 'id' like the standard generator
                         \$params = is_array(\$key) ? \$key : [\$model->primaryKey()[0] => (string)\$key];
                         \$params[0] = Yii::\$app->controller->id ? Yii::\$app->controller->id . '/' . \$action : \$action;
@@ -122,8 +127,8 @@ PHP;
         $count = 0;
         echo "\n"; // code-formatting
 
-        foreach ($generator->getTableSchema()->columns as $column) {
-            $format = $generator->columnFormat($column->name,$model);
+        foreach ($safeAttributes as $attribute) {
+            $format = $generator->columnFormat($attribute,$model);
             if ($format == false) continue;
             $format = (++$count < 10) ? "{$format},\n" : "        /*" . trim($format) . "*/\n";
             echo TabPadding::pad($format, 2, true);

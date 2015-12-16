@@ -7,7 +7,7 @@ use cornernote\gii\helpers\TabPadding;
 
 /**
  * @var yii\web\View $this
- * @var schmunk42\giiant\crud\Generator $generator
+ * @var schmunk42\giiant\generators\crud\Generator $generator
  */
 
 $urlParams = $generator->generateUrlParams();
@@ -32,7 +32,6 @@ use cornernote\returnurl\ReturnUrl;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var <?= ltrim($generator->modelClass, '\\') ?> $model
  * @var <?= ltrim($generator->searchModelClass, '\\') ?> $searchModel
  */
 

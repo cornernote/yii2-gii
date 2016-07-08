@@ -34,7 +34,6 @@ Add to your yii config in `config/main.php`:
 ```
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
-        'allowedIPs' => $allowedIPs,
         'generators' => [
             'giiant-model' => [
                 'class' => 'schmunk42\giiant\model\Generator',

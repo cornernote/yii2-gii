@@ -14,7 +14,8 @@
     "require": {
         "yiisoft/yii2": "*",
         "schmunk42/yii2-giiant": "~0.7",
-        "cornernote/yii2-returnurl": "~1.0"
+        "cornernote/yii2-returnurl": "~1.0",
+        "kartik-v/yii2-widget-select2": "~2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",

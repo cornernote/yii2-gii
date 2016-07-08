@@ -36,13 +36,13 @@ Add to your yii config in `config/main.php`:
         'class' => 'yii\gii\Module',
         'generators' => [
             'giiant-model' => [
-                'class' => 'schmunk42\giiant\model\Generator',
+                'class' => 'schmunk42\giiant\generators\model\Generator',
                 'templates' => [
                     'cornernote' => '@vendor/cornernote/yii2-gii/src/giiant/model/cornernote',
                 ],
             ],
             'giiant-crud' => [
-                'class' => 'schmunk42\giiant\crud\Generator',
+                'class' => 'schmunk42\giiant\generators\crud\Generator',
                 'templates' => [
                     'cornernote' => '@vendor/cornernote/yii2-gii/src/giiant/crud/cornernote',
                 ],

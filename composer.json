@@ -13,7 +13,8 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-        "schmunk42/yii2-giiant": "~0.7"
+        "schmunk42/yii2-giiant": "~0.7",
+        "cornernote/yii2-returnurl": "~1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",

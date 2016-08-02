@@ -44,6 +44,16 @@ use <?= '\\' . ltrim($generator->baseClass, '\\') ?>;
  */
 class <?= $className ?> extends <?= StringHelper::basename($generator->baseClass) . "\n" ?>
 {
+<?php if ($generator->db != 'db'): ?>
+    /**
+     * @inheritdoc
+     */
+    public static function getDb()
+    {
+        return Yii::$app-><?= $generator->db ?>;
+    }
+<?php endif; ?>
+    
     /**
      * @inheritdoc
      */

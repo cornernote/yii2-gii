@@ -41,7 +41,7 @@ use cornernote\returnurl\ReturnUrl;
     <?= "<?php } ?>\n" ?>
     <?= "<?= " ?>Html::a('<span class="fa fa-trash"></span> ' . <?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()], [
     'class' => 'btn btn-danger',
-    'data-confirm' => '' . <?= $generator->generateString('Are you sure to delete this item?') ?> . '',
+    'data-confirm' => '' . <?= $generator->generateString('Are you sure?') ?> . '',
     'data-method' => 'post',
     ]); ?>
 </p>

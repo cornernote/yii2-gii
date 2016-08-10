@@ -129,7 +129,7 @@ foreach ((new $generator->modelClass)->scenarios() as $scenarioName => $scenario
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->getSession()->setFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been created.') ?>);
-            return $this->redirect(['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()]);
+            return $this->redirect(ReturnUrl::getUrl(['view', <?= $urlParams ?>]));
         } elseif (!\Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->get());
         }
@@ -150,7 +150,7 @@ foreach ((new $generator->modelClass)->scenarios() as $scenarioName => $scenario
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->getSession()->setFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been updated.') ?>);
-            return $this->redirect(['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()]);
+            return $this->redirect(ReturnUrl::getUrl(['view', <?= $urlParams ?>]));
         } elseif (!\Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->get());
         }

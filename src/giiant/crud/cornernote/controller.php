@@ -128,7 +128,7 @@ foreach ((new $generator->modelClass)->scenarios() as $scenarioName => $scenario
         $model->scenario = 'create';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->getSession()->setFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been created.') ?>);
+            Yii::$app->getSession()->addFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been created.') ?>);
             return $this->redirect(ReturnUrl::getUrl(['view', <?= $urlParams ?>]));
         } elseif (!\Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->get());
@@ -149,7 +149,7 @@ foreach ((new $generator->modelClass)->scenarios() as $scenarioName => $scenario
         $model->scenario = 'update';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->getSession()->setFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been updated.') ?>);
+            Yii::$app->getSession()->addFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been updated.') ?>);
             return $this->redirect(ReturnUrl::getUrl(['view', <?= $urlParams ?>]));
         } elseif (!\Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->get());
@@ -176,7 +176,7 @@ foreach ((new $generator->modelClass)->scenarios() as $scenarioName => $scenario
         $model->scenario = '<?= $scenarioName ?>';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->getSession()->setFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' ' . Inflector::camel2words($scenarioName) . ' was successful.') ?>);
+            Yii::$app->getSession()->addFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' ' . Inflector::camel2words($scenarioName) . ' was successful.') ?>);
             return $this->redirect(['view', <?= $urlParams ?>, 'ru' => ReturnUrl::getRequestToken()]);
         } elseif (!\Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->get());
@@ -195,7 +195,7 @@ foreach ((new $generator->modelClass)->scenarios() as $scenarioName => $scenario
     public function actionDelete(<?= $actionParams ?>)
     {
         $this->findModel(<?= $actionParams ?>)->delete();
-        Yii::$app->getSession()->setFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been deleted.') ?>);
+        Yii::$app->getSession()->addFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been deleted.') ?>);
 
         return $this->redirect(ReturnUrl::getUrl(['index']));
     }

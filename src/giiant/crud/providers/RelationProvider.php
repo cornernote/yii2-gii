@@ -4,7 +4,7 @@ namespace cornernote\gii\giiant\crud\providers;
 
 use cornernote\gii\helpers\TabPadding;
 
-class RelationProvider extends \schmunk42\giiant\generators\crud\providers\RelationProvider
+class RelationProvider extends \schmunk42\giiant\generators\crud\providers\core\RelationProvider
 {
 
     public $inputWidget = 'select2';

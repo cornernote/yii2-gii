@@ -126,6 +126,7 @@ foreach ((new $generator->modelClass)->scenarios() as $scenarioName => $scenario
     {
         $model = new <?= $modelClass ?>;
         $model->scenario = 'create';
+        $model->loadDefaultValues();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->getSession()->addFlash('success', <?= $generator->generateString(Inflector::camel2words(StringHelper::basename($generator->modelClass)) . ' has been created.') ?>);

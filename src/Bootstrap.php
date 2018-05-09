@@ -19,10 +19,10 @@ class Bootstrap implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        if ($app->hasModule('gii')) {
-            if ($app instanceof \yii\console\Application) {
-                $app->controllerMap['gii-batch'] = 'cornernote\gii\commands\BatchController';
-            }
-        }
+        //if ($app->hasModule('gii')) {
+        //    if ($app instanceof \yii\console\Application) {
+        //        $app->controllerMap['gii-batch'] = 'cornernote\gii\commands\BatchController';
+        //    }
+        //}
     }
 }
